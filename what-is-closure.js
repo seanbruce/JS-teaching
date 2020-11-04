@@ -135,7 +135,21 @@ var myModule = (function () {
 myModule.calculateAnswer(46);
 
 // and many other countless usage
+// code inside our code everywhere
 
-mythBusters;
+
+
+// mythBusters
 
 // closure only happened when inner function return from outer function ❌
+
+// closure has performance problem ❌
+
+// closure has memory leak problem ❌
+
+
+
+// summary
+// 1. closure definition
+// 2. closure recognization
+// 3. use case
