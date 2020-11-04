@@ -1,4 +1,4 @@
-// some of the code below comes from the Dan Abramov's website whatthefuck.is
+// some of the code below are quoted from the Dan Abramov's website whatthefuck.is
 
 // Scope of variable
 var globalVariable = 'global';
