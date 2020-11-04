@@ -135,7 +135,7 @@ var myModule = (function () {
 myModule.calculateAnswer(46);
 
 // and many other countless usage
-// code inside our code everywhere
+// closure used inside our code everywhere
 
 
 
