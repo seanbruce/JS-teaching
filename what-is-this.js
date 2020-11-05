@@ -90,3 +90,35 @@ printName() // -> 'sean'
 // 5. arrow function use parent function this value
 
 // compare with closure
+
+// example
+// image using Jquery handle click event
+function handleClickButton() {
+  // here 'this' is pointed to the HTMLButtonElement 
+  this.style.backgroundColor = 'red';
+  setTimeout(function() {
+    // this will throw an error
+    this.style.backgroundColor = 'white'
+  })
+}
+
+// solution recommended
+function handleClickButton() {
+  // this is pointed to the HTMLButtonElement 
+  this.style.backgroundColor = 'red';
+  setTimeout(() => {
+    // arrow function use parent this value
+    this.style.backgroundColor = 'white'
+  })
+}
+
+// legacy
+function handleClickButton() {
+  // this is pointed to the HTMLButtonElement 
+  this.style.backgroundColor = 'red';
+  var that = this
+  setTimeout(function() {
+    // use closure capture the value we need
+    that.style.backgroundColor = 'white'
+  })
+}
