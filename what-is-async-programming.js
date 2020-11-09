@@ -28,7 +28,7 @@ console.log(5)
 
 // a browser consist of many parts, JS engine just one of them. To handle asynchronous task we need know:
 // 1. event loop is where computation happened
-// 2. task queue where browser could queue new task for event loop to work later on (video: 7:20)
+// 2. task queue where browser could queue new task for event loop to work later on (video: 7:20 ~ 8:57)
 setTimeout(function() {
   // new task
 }, 300)
@@ -42,12 +42,15 @@ setTimeout(function() {
 // d) compositing: reordering different layers
 
 // these steps called render steps, and those steps happens in the same thread(video: 8:57)
+// window.requestAnimationFrame (12:30)
+// we have roughly 16ms(10ms) time budget for every rendering(why)
 
-// 3. micro task queue
+// 3. micro task queue (25:38)
+// micro task doesn't mean blocking free (26:58)
+// tasks vs animationCallback vs micro task
 
-// every computation work is done on that single thread which includes:
-// 1. Our JavaScript code
-// 2. browser rendering
+// quiz(30:18)
+
 
 // appendix
 // 1.call stack
