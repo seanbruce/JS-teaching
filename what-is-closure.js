@@ -12,6 +12,7 @@ function outerFunction() {
     console.log(innerVariable); // D
   }
 }
+outerFunction();
 
 // tl;dr You have a closure when a function accesses variables defined outside of it
 //                                                                         --Dan Abramov
@@ -33,11 +34,12 @@ for (var j = 0; j < greetingFns.length; j++) {
   greetingFns[j]();
 }
 
-// solution 1 - use closure
+// solution 1 - use IIFE closure
 for (var i = 0; i < 10; i++) {
   (function (i) {
+    var k = i;
     greetingFns.push(function () {
-      console.log(`greeting ${i}`);
+      console.log(`greeting ${k}`);
     });
   })(i);
 }
@@ -137,8 +139,6 @@ myModule.calculateAnswer(46);
 // and many other countless usage
 // closure used inside our code everywhere
 
-
-
 // mythBusters
 
 // closure only happened when inner function return from outer function ❌
@@ -146,8 +146,6 @@ myModule.calculateAnswer(46);
 // closure has performance problem ❌
 
 // closure has memory leak problem ❌
-
-
 
 // summary
 // 1. closure definition
