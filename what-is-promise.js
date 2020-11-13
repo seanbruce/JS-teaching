@@ -90,6 +90,25 @@ fetchPost().then(doSomethingWhenSuccess, doSomethingWhenFailure)
 // either only doSomethingWhenSuccess or only doSomethingWhenFailure will be called and only once
 // once the internal state change from 'pending' to 'resolved' or 'rejected', it'll never change again
 
+function trackGoods(goods) {
+  return new Promise((resolve, reject) => {
+    ajx('http://api/track', goods, function(error, data) {
+      if (error) {
+        reject(error)
+      } else {
+        const {isSuccess, trackId, errorMsg} = data
+        if (isSuccess) {
+          resolve(trackId)
+        } else {
+          reject(errorMsg)
+        }
+      }
+    })
+  })
+}
+fetch('url',{method: 'POST', body: JSON.stringify({name: 'sean'})})
+trackGoods(data).then()
+
 // 2.
 const timeout = (millisecond) => new Promise((_, rejected) => setTimeout(rejected, millisecond))
 Promise.race([
@@ -168,8 +187,8 @@ task1()
 
 // 5.
 const t1 = task1()
-t1.then(oneThing)
-t1.then(anotherThing)
+  t1.then(oneThing),
+  t1.then(anotherThing)
 
 // timing
 // callback registered with then and catch always run when state switch to resolved or rejected respectively even after promise settled
@@ -194,6 +213,14 @@ task1()
     task2()
   })
   .catch(error => console.log(error))
+
+task1()
+  .then(() => {
+    task2()
+  })
+  .then(() => {
+    task3()
+  })
 
 //correct
 task1()
